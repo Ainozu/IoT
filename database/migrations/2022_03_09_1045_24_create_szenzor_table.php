@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('berendezes_id')->references('id')->on('berendezes');
             $table->string('tipus');
-            $table->integer('fogyasztas');
+            $table->integer('fogyasztas')->nullable();
             $table->string('allapot');
         });
     }

@@ -4,20 +4,17 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Szenzor;
 
-class DatabaseSeeder extends Seeder
+class SzenzorSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-            UzemSeeder::class,
-            BerendezesSeeder::class,
-            SzenzorSeeder::class,
-        ]);
+        Szenzor::factory()->count(20)->create();
     }
 }

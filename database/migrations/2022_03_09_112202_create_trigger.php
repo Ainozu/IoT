@@ -14,12 +14,24 @@ return new class extends Migration
     public function up()
     {
         DB::unprepared('
-        create trigger fogyaszat before insert on szenzor FOR EACH ROW
-         BEGIN
-         update fogyasztas 
-         set NEW.fogyasztas=NEW.fogyasztas-fogyasztas;
-            END
-         ');
+        CREATE TRIGGER fogyaszat BEFORE INSERT ON szenzor
+        FOR EACH ROW
+        BEGIN
+        
+            DECLARE tmp INT;
+
+            SET tmp  = (SELECT fogyasztas FROM szenzor WHERE berendezes_id=new.berendezes_id order by id desc limit 1);
+
+            
+            IF tmp IS NOT NULL THEN
+                SET NEW.fogyasztas=(NEW.fogyasztas-tmp);
+            END IF;
+            
+
+        END');
+
+
+        
     }
 
     /**
