@@ -21,7 +21,7 @@ class BerendezesFactory extends Factory
             'id'=>null,
             'uzem_id' => rand(1,2),
             'tipus' => Str::random(6),
-            'allapot' => rand(1,2),
+            'allapot' => rand(0,1),
         ];
     }
 }

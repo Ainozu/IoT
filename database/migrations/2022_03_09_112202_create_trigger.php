@@ -28,10 +28,7 @@ return new class extends Migration
             END IF;
             
 
-        END');
-
-
-        
+        END');        
     }
 
     /**
